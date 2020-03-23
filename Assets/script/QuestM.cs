@@ -6,6 +6,9 @@ using UnityEngine;
 public class QuestM : MonoBehaviour
 {
     public StageUIMa StageUI;
+    public GameObject enemyPrefab;
+    // 敵に遭遇確率 0=遭遇
+    int[] encountTable = { -1, -1, 0, -1, 0, -1 };
 
     int currentStage = 0; // 現在のステージ進行度
     private void Start()//Startが小文字だと反応しない
@@ -16,7 +19,22 @@ public class QuestM : MonoBehaviour
     // Nextbutton押されたら起動
     public void OnNextButton()
     {
-       currentStage++;　
+       currentStage++;
+
        StageUI.UpdateUI(currentStage);
+       if(encountTable.Length <= currentStage)
+        {
+            Debug.Log("Happy");
+        }
+       else if (encountTable[currentStage] == 0)
+        {
+            EncountEnemy();
+
+        }
+    }
+    void EncountEnemy()
+    {
+        StageUI.HideButtons();
+        Instantiate(enemyPrefab);
     }
 }
