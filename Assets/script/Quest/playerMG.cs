@@ -15,6 +15,9 @@ public class playerMG : MonoBehaviour
     public void Damage(int damage)
     {
         hp -= damage;
-        Debug.Log("P-HP:"+hp);
+        if (hp <= 0)
+        {
+            hp = 0;
+        }
     }
 }

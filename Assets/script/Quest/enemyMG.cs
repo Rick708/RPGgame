@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 // 敵の行動管理（クリック/ステータス）
@@ -9,6 +8,10 @@ public class enemyMG : MonoBehaviour
     public int at;
     public new string name;
 
+    //関数登録
+    Action tapAction; //クリックされた時に実行したい関数を入れるBMGから持ってっ来る
+
+
     // 攻撃とダメージ
     public void Attack(playerMG player)
     {
@@ -17,13 +20,23 @@ public class enemyMG : MonoBehaviour
     public void Damage(int damage)
     {
         hp -= damage;
-        Debug.Log("P-HP:"+hp);
+        if (hp <= 0)
+        {
+            hp = 0;
+        }
     }
 
+    // tapActionに関数を登録する関数を作る
+
+    public void AddEventListenerOnTap(Action action)
+    {
+        tapAction += action;
+    }
 
     public void Ontap()
     {
         Debug.Log("click");
+        tapAction();
     }
 
 }
