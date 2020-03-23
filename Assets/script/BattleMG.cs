@@ -5,8 +5,11 @@ using UnityEngine;
 // 対戦管理
 public class BattleMG : MonoBehaviour
 {
-    private void Start()
+    public playerMG player;
+    public enemyMG enemy;
+    void Start()
     {
-      
+        player.Attack(enemy);
+        enemy.Attack(player);
     }
 }

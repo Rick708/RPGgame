@@ -12,11 +12,12 @@ public class enemyMG : MonoBehaviour
     // 攻撃とダメージ
     public void Attack(playerMG player)
     {
-
+        player.Damage(at);
     }
     public void Damage(int damage)
     {
         hp -= damage;
+        Debug.Log("P-HP:"+hp);
     }
 
 
