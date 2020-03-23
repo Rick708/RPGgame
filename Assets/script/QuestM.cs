@@ -5,13 +5,18 @@ using UnityEngine;
 //クエストの管理
 public class QuestM : MonoBehaviour
 {
-        int currentStage = 0;  //現在のステージ進行度を取得
+    public StageUIMa StageUI;
 
+    int currentStage = 0; // 現在のステージ進行度
+    private void Start()//Startが小文字だと反応しない
+    {
+        StageUI.UpdateUI(currentStage);// 名前の大文字小文字は合わせる
+    }
 
     // Nextbutton押されたら起動
     public void OnNextButton()
     {
-       currentStage++;　//進行度を増加
-       Debug.Log("進行度増加"+currentStage);
+       currentStage++;　
+       StageUI.UpdateUI(currentStage);
     }
 }
