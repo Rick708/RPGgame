@@ -9,9 +9,14 @@ public class EnemyUIMG : MonoBehaviour
     public Text hpText;
     public Text nameText;
 
-    public void UpdateUI(int currentStage)
+    public void SetupUI(enemyMG enemy)
     {
-        hpText.text = string.Format("ステージ：{0}", 80);
+        hpText.text = string.Format("HP:{0}", enemy.hp);
+        nameText.text = string.Format("{0}", enemy.name);
     }
 
+    public void UpdateUI(enemyMG enemy)
+    {
+        hpText.text = string.Format("HP:{0}", enemy.hp);
+    }
 }

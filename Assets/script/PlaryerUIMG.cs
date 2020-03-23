@@ -8,9 +8,14 @@ public class PlaryerUIMG : MonoBehaviour
     public Text hpText;
     public Text atText;
 
-    public void UpdateUI(int currentStage)
+    public void SetupUI(playerMG player)
     {
-        hpText.text = string.Format("ステージ：{0}", 80);
+        hpText.text = string.Format("HP:{0}", player.hp);
+        atText.text = string.Format("AT:{0}", player.at);
     }
 
+    public void UpdateUI(playerMG player)
+    {
+        hpText.text = string.Format("HP:{0}", player.hp);
+    }
 }

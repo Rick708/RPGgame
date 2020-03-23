@@ -7,6 +7,7 @@ public class QuestM : MonoBehaviour
 {
     public StageUIMa StageUI;
     public GameObject enemyPrefab;
+    public BattleMG BattleMG;
     // 敵に遭遇確率 0=遭遇
     int[] encountTable = { -1, -1, 0, -1, 0, -1 };
 
@@ -35,6 +36,9 @@ public class QuestM : MonoBehaviour
     void EncountEnemy()
     {
         StageUI.HideButtons();
-        Instantiate(enemyPrefab);
+        GameObject enemyobj = Instantiate(enemyPrefab);
+        enemyMG enemy = enemyobj.GetComponent<enemyMG>();
+        BattleMG.Setup(enemy);
+
     }
 }
