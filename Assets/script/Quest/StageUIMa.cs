@@ -9,6 +9,13 @@ public class StageUIMa : MonoBehaviour
     public Text stageText;
     public GameObject nextButton;
     public GameObject toTownButton;
+    public GameObject stegeClearText;
+    public GameObject stageClearText;
+
+    private void Start()
+    {
+        stageClearText.SetActive(false);
+    }
 
     public void UpdateUI(int currentStage)
     {
@@ -25,5 +32,10 @@ public class StageUIMa : MonoBehaviour
         nextButton.SetActive(true);
         toTownButton.SetActive(true);
     }
-
+    public void ShowClearText()
+    {
+        stegeClearText.SetActive(true);
+        nextButton.SetActive(false);
+        toTownButton.SetActive(true);
+    }
 }

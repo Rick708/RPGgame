@@ -51,6 +51,7 @@ public class QuestM : MonoBehaviour
 
     void QuestClear()
     {
-        sceneTransitionManager.LoadTo("Town"); //
+        StageUI.ShowClearText();
+        //sceneTransitionManager.LoadTo("Town");
     }
 }
