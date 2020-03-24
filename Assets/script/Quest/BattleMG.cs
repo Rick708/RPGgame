@@ -16,6 +16,8 @@ public class BattleMG : MonoBehaviour
         enemyUI.gameObject.SetActive(false);
     }
 
+
+
     // 初期設定
     public void Setup(enemyMG enemyMG)
     {
@@ -39,13 +41,15 @@ public class BattleMG : MonoBehaviour
         }
         else
         {
-            enemyTurn();
+            StartCoroutine(enemyTurn());
         }
 
     }
 
-    void enemyTurn()
+    IEnumerator enemyTurn()
     {
+        yield return new WaitForSeconds(1f);
+        SoundMG.instance.PlaySE(1);
         enemy.Attack(player);
         playerUI.UpdateUI(player);
     }

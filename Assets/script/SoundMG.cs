@@ -30,6 +30,11 @@ public class SoundMG : MonoBehaviour
     public AudioSource audioSourceSE; // SEのスピーカー
     public AudioClip[] audioClipsSE; // ならす素材
 
+    public void stopBGM()
+    {
+        audioSourceBGM.Stop();
+    }
+
     private void Start()
     {
         PlayBGM("title");
@@ -57,6 +62,8 @@ public class SoundMG : MonoBehaviour
         }
         audioSourceBGM.Play();
     }
+
+
     public void PlaySE(int index)
     {
         audioSourceSE.PlayOneShot(audioClipsSE[index]); // SEを一度だけならす
