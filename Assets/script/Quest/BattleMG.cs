@@ -19,14 +19,16 @@ public class BattleMG : MonoBehaviour
     // 初期設定
     public void Setup(enemyMG enemyMG)
     {
+        SoundMG.instance.PlayBGM("Battle");
         enemyUI.gameObject.SetActive(true);
-    enemy = enemyMG;
+        enemy = enemyMG;
         enemyUI.SetupUI(enemy);
         playerUI.SetupUI(player);
         enemy.AddEventListenerOnTap(playerAttack);
     }
     void playerAttack()
     {
+        SoundMG.instance.PlaySE(1);
         player.Attack(enemy);
         enemyUI.UpdateUI(enemy);
         if (enemy.hp <= 0)
@@ -50,6 +52,7 @@ public class BattleMG : MonoBehaviour
 
     void EndBattle()
     {
+        SoundMG.instance.PlayBGM("Quest");
         questM.EndBattle();
 
     }

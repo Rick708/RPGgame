@@ -9,12 +9,11 @@ public class StageUIMa : MonoBehaviour
     public Text stageText;
     public GameObject nextButton;
     public GameObject toTownButton;
-    public GameObject stegeClearText;
-    public GameObject stageClearText;
+    public GameObject stageClearImage;
 
     private void Start()
     {
-        stageClearText.SetActive(false);
+        stageClearImage.SetActive(false);
     }
 
     public void UpdateUI(int currentStage)
@@ -34,7 +33,7 @@ public class StageUIMa : MonoBehaviour
     }
     public void ShowClearText()
     {
-        stegeClearText.SetActive(true);
+        stageClearImage.SetActive(true);
         nextButton.SetActive(false);
         toTownButton.SetActive(true);
     }

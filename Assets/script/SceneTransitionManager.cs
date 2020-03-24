@@ -8,6 +8,7 @@ public class SceneTransitionManager : MonoBehaviour
     public void LoadTo(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        SoundMG.instance.PlayBGM(sceneName);
     }
 
 }

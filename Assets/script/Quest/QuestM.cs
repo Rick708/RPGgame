@@ -21,6 +21,7 @@ public class QuestM : MonoBehaviour
     // Nextbutton押されたら起動
     public void OnNextButton()
     {
+        SoundMG.instance.PlaySE(0);
         currentStage++;
 
         StageUI.UpdateUI(currentStage);
@@ -35,6 +36,12 @@ public class QuestM : MonoBehaviour
 
         }
     }
+
+    public void OnToTownButton()
+    {
+        SoundMG.instance.PlaySE(0);
+    }
+
     void EncountEnemy()
     {
         StageUI.HideButtons();
@@ -51,6 +58,7 @@ public class QuestM : MonoBehaviour
 
     void QuestClear()
     {
+        SoundMG.instance.PlaySE(2);
         StageUI.ShowClearText();
         //sceneTransitionManager.LoadTo("Town");
     }
