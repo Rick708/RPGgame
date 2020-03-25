@@ -37,11 +37,10 @@ public class BattleMG : MonoBehaviour
         SoundMG.instance.PlaySE(1);
         player.Attack(enemy);
         enemyUI.UpdateUI(enemy);
+
         if (enemy.hp <= 0)
         {
-            Destroy(enemy.gameObject);
-            EndBattle();
-            enemyUI.gameObject.SetActive(false);
+            StartCoroutine(EndBattle());
         }
         else
         {
@@ -60,10 +59,13 @@ public class BattleMG : MonoBehaviour
         playerUI.UpdateUI(player);
     }
 
-    void EndBattle()
+    IEnumerator EndBattle()
     {
+        yield return new WaitForSeconds(1f);
+
+        Destroy(enemy.gameObject);
         SoundMG.instance.PlayBGM("Quest");
         questM.EndBattle();
-
+        enemyUI.gameObject.SetActive(false);
     }
 }
