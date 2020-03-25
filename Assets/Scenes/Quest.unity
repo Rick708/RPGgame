@@ -2142,6 +2142,8 @@ MonoBehaviour:
   hp: 100
   at: 10
   name: test
+  hitEffect: {fileID: 5639689446408938417, guid: 591343cc9c11e45a5b783dcfd2640496,
+    type: 3}
 --- !u!4 &2028442987
 Transform:
   m_ObjectHideFlags: 0

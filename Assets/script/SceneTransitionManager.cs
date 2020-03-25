@@ -7,6 +7,10 @@ public class SceneTransitionManager : MonoBehaviour
 {
     public void LoadTo(string sceneName)
     {
+        FadeIOMG.instance.FadeOutToIn(() => Load(sceneName));
+    }
+    void Load(string sceneName)
+    {
         SceneManager.LoadScene(sceneName);
         SoundMG.instance.PlayBGM(sceneName);
     }

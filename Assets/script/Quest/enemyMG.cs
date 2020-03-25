@@ -8,6 +8,7 @@ public class enemyMG : MonoBehaviour
     public int hp;
     public int at;
     public new string name;
+    public GameObject hitEffect;
 
     //関数登録
     Action tapAction; //クリックされた時に実行したい関数を入れるBMGから持ってっ来る
@@ -20,6 +21,7 @@ public class enemyMG : MonoBehaviour
     }
     public void Damage(int damage)
     {
+        Instantiate(hitEffect);
         transform.DOShakePosition(0.5f, 0.5f, 40, 0, false, true);
         hp -= damage;
         if (hp <= 0)
