@@ -35,7 +35,8 @@ public class BattleMG : MonoBehaviour
     {
         StopAllCoroutines();
         SoundMG.instance.PlaySE(1);
-        player.Attack(enemy);
+        int damage = player.Attack(enemy);
+        DialogTextManager.instance.SetScenarios(new string[] { "Playerの攻撃\nEnemyに" + damage + "のダメージを与えた！！" });
         enemyUI.UpdateUI(enemy);
 
         if (enemy.hp <= 0)
@@ -52,16 +53,17 @@ public class BattleMG : MonoBehaviour
     IEnumerator enemyTurn()
     {
         
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         SoundMG.instance.PlaySE(1);
         cameraobj.DOShakePosition(0.5f, 0.5f, 40, 0, false, true);
-        enemy.Attack(player);
+        int damage = enemy.Attack(player);
+        DialogTextManager.instance.SetScenarios(new string[] { "Enemyの攻撃\nPlayerに" + damage + "のダメージを与えた！！" });
         playerUI.UpdateUI(player);
     }
 
     IEnumerator EndBattle()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         Destroy(enemy.gameObject);
         SoundMG.instance.PlayBGM("Quest");

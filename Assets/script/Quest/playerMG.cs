@@ -8,16 +8,18 @@ public class playerMG : MonoBehaviour
     public int at;
 
     // 攻撃とダメージ
-    public void Attack(enemyMG enemy)
+    public int Attack(enemyMG enemy)
     {
-        enemy.Damage(at);
+        int damage = enemy.Damage(at);
+        return damage;
     }
-    public void Damage(int damage)
+    public int Damage(int damage)
     {
         hp -= damage;
         if (hp <= 0)
         {
             hp = 0;
         }
+        return damage;
     }
 }

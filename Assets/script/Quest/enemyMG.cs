@@ -10,16 +10,15 @@ public class enemyMG : MonoBehaviour
     public new string name;
     public GameObject hitEffect;
 
-    //関数登録
-    Action tapAction; //クリックされた時に実行したい関数を入れるBMGから持ってっ来る
+    Action tapAction;
 
 
-    // 攻撃とダメージ
-    public void Attack(playerMG player)
+    public int Attack(playerMG player)
     {
-        player.Damage(at);
+        int damage = player.Damage(at);
+        return damage;
     }
-    public void Damage(int damage)
+    public int Damage(int damage)
     {
         Instantiate(hitEffect);
         transform.DOShakePosition(0.5f, 0.5f, 40, 0, false, true);
@@ -28,9 +27,8 @@ public class enemyMG : MonoBehaviour
         {
             hp = 0;
         }
+        return damage;
     }
-
-    // tapActionに関数を登録する関数を作る
 
     public void AddEventListenerOnTap(Action action)
     {
@@ -39,7 +37,6 @@ public class enemyMG : MonoBehaviour
 
     public void Ontap()
     {
-        Debug.Log("click");
         tapAction();
     }
 

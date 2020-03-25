@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class FadeIOMG : MonoBehaviour
 {
+
+    public float fadeTime = 1f;
     public static FadeIOMG instance;
 
     private void Awake()
@@ -24,20 +26,20 @@ public class FadeIOMG : MonoBehaviour
     public void FadeOut()
     {
         canvasGroup.blocksRaycasts = true;
-        canvasGroup.DOFade(1, 2f)
+        canvasGroup.DOFade(1, fadeTime)
             .OnComplete(() => canvasGroup.blocksRaycasts = false);
     }
     public void FadeIn()
     {
         canvasGroup.blocksRaycasts = true;
-        canvasGroup.DOFade(0, 2f)
+        canvasGroup.DOFade(0, fadeTime)
             .OnComplete(() => canvasGroup.blocksRaycasts = false);
     }
 
     public void FadeOutToIn(TweenCallback action)
 	{
         canvasGroup.blocksRaycasts = true;
-        canvasGroup.DOFade(1, 2f)
+        canvasGroup.DOFade(1, fadeTime)
             .OnComplete(() => {
                 action();
                 FadeIn();

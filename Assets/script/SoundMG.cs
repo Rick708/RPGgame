@@ -3,13 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//音源とスピーカー用意
+
 public class SoundMG : MonoBehaviour
 {
-    // シングルトン
-    // ゲーム内に１つしか存在しない物（音を管理する物とか）
-    // 利用場所：シーン間でのデータ共有/オブジェクト共有
-    // 書き方
     public static SoundMG instance;
 
     private void Awake()
@@ -25,10 +21,10 @@ public class SoundMG : MonoBehaviour
         }
     }
 
-    public AudioSource audioSourceBGM; // BGMのスピーカー
-    public AudioClip[] audioClipsBGM;  // BGMの素材（0:Title, 1:Town, 2:Quest, 3:Battle）
-    public AudioSource audioSourceSE; // SEのスピーカー
-    public AudioClip[] audioClipsSE; // ならす素材
+    public AudioSource audioSourceBGM;
+    public AudioClip[] audioClipsBGM; 
+    public AudioSource audioSourceSE;
+    public AudioClip[] audioClipsSE;
 
     public void stopBGM()
     {
@@ -66,6 +62,6 @@ public class SoundMG : MonoBehaviour
 
     public void PlaySE(int index)
     {
-        audioSourceSE.PlayOneShot(audioClipsSE[index]); // SEを一度だけならす
+        audioSourceSE.PlayOneShot(audioClipsSE[index]);
     }
 }
