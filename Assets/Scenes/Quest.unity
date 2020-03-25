@@ -418,6 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363be7c95dca74217a8eaf42f15f0266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraobj: {fileID: 519420032}
   questM: {fileID: 1982809354}
   playerUI: {fileID: 1638109989}
   enemyUI: {fileID: 1054058345}

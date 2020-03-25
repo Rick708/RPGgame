@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using DG.Tweening;
 
 // 敵の行動管理（クリック/ステータス）
 public class enemyMG : MonoBehaviour
@@ -19,6 +20,7 @@ public class enemyMG : MonoBehaviour
     }
     public void Damage(int damage)
     {
+        transform.DOShakePosition(0.5f, 0.5f, 40, 0, false, true);
         hp -= damage;
         if (hp <= 0)
         {

@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 // 対戦管理
 public class BattleMG : MonoBehaviour
 {
+    public Transform cameraobj;
     public QuestM questM;
     public PlaryerUIMG playerUI;
     public EnemyUIMG enemyUI;
@@ -27,9 +29,11 @@ public class BattleMG : MonoBehaviour
         enemyUI.SetupUI(enemy);
         playerUI.SetupUI(player);
         enemy.AddEventListenerOnTap(playerAttack);
+
     }
     void playerAttack()
     {
+        StopAllCoroutines();
         SoundMG.instance.PlaySE(1);
         player.Attack(enemy);
         enemyUI.UpdateUI(enemy);
@@ -48,8 +52,10 @@ public class BattleMG : MonoBehaviour
 
     IEnumerator enemyTurn()
     {
+        
         yield return new WaitForSeconds(1f);
         SoundMG.instance.PlaySE(1);
+        cameraobj.DOShakePosition(0.5f, 0.5f, 40, 0, false, true);
         enemy.Attack(player);
         playerUI.UpdateUI(player);
     }
