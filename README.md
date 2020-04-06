@@ -6,10 +6,9 @@ Title、Quest、Townの3つのSceneを使用したゲームでクエストを進
 とターン制のバトルを行う2DRPG
 
 ## 工夫した機能
-- Singleton
-- Coroutine
-- DoTween
-- BGM,SE,Effect
+- Singleton(BGM,SE,Effect)
+- Coroutine(遅延機能)
+- DoTween（アニメーション機能）
 
 
 ## 環境環境
